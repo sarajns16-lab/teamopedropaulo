@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Dia em Que o Mundo Ganhou Pedro Paulo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
+    color: #ffffff;
+    text-align: center;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: black;
+}
+
+button {
+    background: #d4af37;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #b8962e;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1.2s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer {
+    background: #000;
+    padding: 40px 20px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>O Dia em Que o Mundo Ganhou Pedro Paulo</h1>
+    <p>No dia 25 de fevereiro de 2004, em Goiânia, Goiás,<br>
+    o mundo recebeu um presente.</p>
+    <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})">
+        Assistir história
+    </button>
+</section>
+
+<section id="historia" class="fade">
+    <h2>Onde Tudo Começou</h2>
+    <p>
+    Goiânia foi o palco do início.<br><br>
+    2004 foi o ano em que o mundo ficou um pouco mais determinado,
+    porque foi o ano em que você chegou.<br><br>
+    Mal sabia o mundo que aquele menino
+    se tornaria o homem que hoje é meu porto seguro.
+    </p>
+</section>
+
+<section class="fade">
+    <h2>A Evolução do Personagem</h2>
+    <p>
+    Você sempre foi inteiro.<br><br>
+    Sua personalidade é forte.<br>
+    Seu empenho é propósito.<br>
+    Seu cuidado é amor em ação.<br><br>
+    Você protege sem precisar dizer.
+    Você ama com presença.
+    </p>
+</section>
+
+<section class="fade">
+    <h2>A Versão Atual: 22 Anos</h2>
+    <p>
+    22 anos formando o homem trabalhador, intenso e provedor que você é.<br><br>
+    Você trabalha muito.<br>
+    Você se dedica.<br>
+    Você constrói futuro.<br><br>
+    E amar você é sentir segurança.
+    </p>
+</section>
+
+<section class="fade">
+    <h2>Nossa Próxima Temporada</h2>
+    <p>
+    Eu vejo conquistas.<br>
+    Vejo crescimento.<br>
+    Vejo você alcançando tudo o que trabalha tanto para conquistar.<br><br>
+    E eu quero estar em todas as próximas temporadas da sua vida.
+    </p>
+</section>
+
+<section class="fade">
+    <h2>Uma Parte Só Minha</h2>
+    <p>
+    Amor, palavras não são suficientes para descrever tudo o que temos vivido nos últimos meses.<br><br>
+    Passamos por percalços, enfrentamos dificuldades,
+    mas o nosso amor sempre falou mais alto.<br><br>
+    Te amar tem sido uma dádiva, um presente diário.
+    E eu quero ter esse presente por toda a minha vida.<br><br>
+    Obrigada por fazer parte dela,
+    por tornar cada momento mais especial.<br><br>
+    Sem você, nada do que tenho hoje seria possível.<br><br>
+    Feliz vida, meu amor.
+    </p>
+</section>
+
+<section class="footer">
+    <p>Com amor, Sara 💙</p>
+    <button onclick="window.open('https://open.spotify.com/search/Seu%20Astral%20Jorge%20%26%20Mateus', '_blank')">
+        🎵 Tocar Nossa Música
+    </button>
+</section>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+
+const appearOptions = {
+    threshold: 0.3
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    entries.forEach(entry => {
+        if(!entry.isIntersecting){
+            return;
+        } else {
+            entry.target.classList.add("show");
+            appearOnScroll.unobserve(entry.target);
+        }
+    });
+}, appearOptions);
+
+faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+});
+</script>
+
+</body>
+</html>
